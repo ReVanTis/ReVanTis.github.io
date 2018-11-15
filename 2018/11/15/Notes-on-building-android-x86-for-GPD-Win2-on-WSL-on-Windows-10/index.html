@@ -1,97 +1,76 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
-  
-
-  
-  <title>Notes on building android-x86 for GPD Win2 on WSL on Windows 10. | Corrupted Data</title>
+<html lang=en, cn>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Official guide:http://www.android-x86.org/getsourcecode some unlisted apt install and pip install:123sudo apt-get install libyaml-dev gettext mtools genisoimage syslinux-utils syslinux libelf-dev lunz">
-<meta name="keywords" content="android-x86">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Notes on building android-x86 for GPD Win2 on WSL on Windows 10.">
-<meta property="og:url" content="https://blog.vaninc.top/2018/11/15/Notes-on-building-android-x86-for-GPD-Win2-on-WSL-on-Windows-10/index.html">
-<meta property="og:site_name" content="Corrupted Data">
-<meta property="og:description" content="Official guide:http://www.android-x86.org/getsourcecode some unlisted apt install and pip install:123sudo apt-get install libyaml-dev gettext mtools genisoimage syslinux-utils syslinux libelf-dev lunz">
-<meta property="og:locale" content="en, cn">
-<meta property="og:updated_time" content="2018-11-15T03:43:08.617Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes on building android-x86 for GPD Win2 on WSL on Windows 10.">
-<meta name="twitter:description" content="Official guide:http://www.android-x86.org/getsourcecode some unlisted apt install and pip install:123sudo apt-get install libyaml-dev gettext mtools genisoimage syslinux-utils syslinux libelf-dev lunz">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   
-    <link rel="alternate" href="/atom.xml" title="Corrupted Data" type="application/atom+xml">
+    <link rel="icon" href="">
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    
+  <title>Notes on building android-x86 for GPD Win2 on WSL on Windows 10. | Corrupted Data</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/lib/jquery.fancybox.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-</html>
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Corrupted Data</a>
-      </h1>
+  <header>
+  <div class="header-container">
+    <a class="logo" href="/">
+      <span>Corrupted Data</span>
+    </a>
+    <ul class="right-header">
       
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">a blog for my personal technical notes</a>
-        </h2>
+        <li class="nav-item">
+          
+            <a href="/" class="item-link">首页</a>
+          
+        </li>
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://blog.vaninc.top"></form>
-      </div>
-    </div>
+        <li class="nav-item">
+          
+            <a href="/about" class="item-link">关于</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/archives" class="item-link">归档</a>
+          
+        </li>
+      
+        <li class="nav-item">
+          
+            <a href="/tags" class="item-link">标签</a>
+          
+        </li>
+      
+    </ul>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-Notes-on-building-android-x86-for-GPD-Win2-on-WSL-on-Windows-10" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/11/15/Notes-on-building-android-x86-for-GPD-Win2-on-WSL-on-Windows-10/" class="article-date">
-  <time datetime="2018-11-15T03:42:06.000Z" itemprop="datePublished">2018-11-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Notes on building android-x86 for GPD Win2 on WSL on Windows 10.
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Official-guide"><a href="#Official-guide" class="headerlink" title="Official guide:"></a>Official guide:</h3><p><a href="http://www.android-x86.org/getsourcecode" target="_blank" rel="noopener">http://www.android-x86.org/getsourcecode</a></p>
+  <main id="post">
+  <div class="content">
+    <article>
+        <section class="content markdown-body">
+          <h1>Notes on building android-x86 for GPD Win2 on WSL on Windows 10.</h1>
+          <div class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> <time>2018/11/15</time>
+            
+            
+              | 
+                  <i class="fa fa-tag" aria-hidden="true"></i>
+                
+               
+  <a href="/tags/#android-x86" class="tag">android-x86</a>
+
+
+            
+          </div>
+          <h3 id="Official-guide"><a href="#Official-guide" class="headerlink" title="Official guide:"></a>Official guide:</h3><p><a href="http://www.android-x86.org/getsourcecode" target="_blank" rel="noopener">http://www.android-x86.org/getsourcecode</a></p>
 <p>some unlisted apt install and pip install:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libyaml-dev gettext mtools genisoimage syslinux-utils syslinux libelf-dev lunzip</span><br><span class="line">sudo apt-get install python-pip</span><br><span class="line">sudo pip install prettytable Mako pyaml dateutils --upgrade</span><br></pre></td></tr></table></figure></p>
 <p>lunch android_x86_64-user might not boot, build with userdebug.</p>
 <p><a href="https://stackoverflow.com/questions/28776970/android-build-error-ro-build-fingerprint-cannot-exceed-91-bytes" target="_blank" rel="noopener">91 bytes ought to be enough for anybody.</a></p>
@@ -108,119 +87,96 @@
 <p>Getting Gapps integrated:<br>Edit local manifest:<br><a href="https://github.com/opengapps/aosp_build" target="_blank" rel="noopener">https://github.com/opengapps/aosp_build</a><br>then apply gapps part from patch:<br><a href="https://github.com/Black-Seraph/android_patches_gpdwin/blob/master/diff/device_generic_common_gpdwin.diff" target="_blank" rel="noopener">https://github.com/Black-Seraph/android_patches_gpdwin/blob/master/diff/device_generic_common_gpdwin.diff</a></p>
 <p>If you’ve finished builds without gapps before applying these patch, remember to clear out/*/system/* before rebuild, redundence packages won’t be cleared and you might not able to boot.</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.vaninc.top/2018/11/15/Notes-on-building-android-x86-for-GPD-Win2-on-WSL-on-Windows-10/" data-id="cjoi2q6f00001f0tnhcu8xfeu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-x86/">android-x86</a></li></ul>
-
-    </footer>
-  </div>
-  
+        </section>
+    </article>
     
-<nav id="article-nav">
-  
-  
-    <a href="/2018/11/15/Hello-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello, Hexo~</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
         
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-x86/">android-x86</a></li></ul>
-    </div>
   </div>
-
-
-  
+  <aside>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/android-x86/" style="font-size: 10px;">android-x86</a>
+    <div class="toc-container">
+        <h1>目录</h1>
+        <div class="content">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Official-guide"><span class="toc-number">1.</span> <span class="toc-text">Official guide:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WSL-related-tweaks"><span class="toc-number">2.</span> <span class="toc-text">WSL related tweaks:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPD-Win2-patches"><span class="toc-number">3.</span> <span class="toc-text">GPD Win2 patches:</span></a></li></ol>
+        </div>
     </div>
-  </div>
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+  </aside>
+</main>
+
+
+
+  <footer>
+  <div class="copyright">
+    <div>
+      &copy; 2018 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a>&nbsp
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2018/11/15/Notes-on-building-android-x86-for-GPD-Win2-on-WSL-on-Windows-10/">Notes on building android-x86 for GPD Win2 on WSL on Windows 10.</a>
-          </li>
-        
-          <li>
-            <a href="/2018/11/15/Hello-Hexo/">Hello, Hexo~</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2018 ReVanTis<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    <div>
+      Theme by <a href="https://github.com/lewis-geek/hexo-theme-Aath" target="_blank">Aath</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/lib/in-view.min.js"></script>
+<script src="/lib/lodash.min.js"></script>
+<script>
+  var isDown = true
+  var oldY = 0
+  inView.offset(50)
+
+  document.body.addEventListener('touchstart', function(){});
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+  window.addEventListener('scroll', _.throttle(e => {
+    var currentY = window.scrollY
+    if((oldY - currentY) < 0) {
+      isDown = true
+    } else {
+      isDown = false
+    }
+    oldY = currentY
+  }, 250))
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  $("article img").each(function() {
+      var strA = "<a data-fancybox='gallery' href='" + this.src + "'></a>";
+      $(this).wrapAll(strA);
+  });
+
+  $('.toc-link').each(function() {
+      var href = $(this).attr("href");
+      
+      inView(href).on('exit', () => {
+        if (isDown) {
+          handleActive(href)
+        }
+      })
+
+      inView(href).on('enter', () => {
+        if (!isDown) {
+          handleActive(href)
+        }
+      })
+
+      this.onclick = function(e) {
+        var pos = $(href).offset().top - 10;
+        $("html,body").animate({scrollTop: pos}, 300);
+        setTimeout(() => {
+          handleActive(href)
+        }, 350)
+        return false
+      }
+  })
+
+  function handleActive(href) {
+    document.querySelectorAll('.toc-link').forEach(elm => {
+      elm.classList.remove('active')
+    })
+    document.querySelector(".toc [href='"+ href +"']").classList.add('active')
+  }
+</script>
+<script src="/lib/jquery.fancybox.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
 </html>
